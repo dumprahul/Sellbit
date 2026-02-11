@@ -1,0 +1,8 @@
+
+/contracts/broadcast
+/contracts/lib
+/contracts/cache
+/contracts/out
+backend/bun.lock
+contracts/.env
+contracts/foundry.lock
