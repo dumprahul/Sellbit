@@ -38,15 +38,15 @@ function TickerItem({ asset }: { asset: CryptoAsset }) {
         />
       </div>
       <div className="flex flex-col">
-        <span className="text-sm font-semibold text-foreground whitespace-nowrap">
+        <span className="text-sm font-semibold text-foreground whitespace-nowrap" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>
           {asset.ticker}
         </span>
-        <span className="text-xs text-muted-foreground truncate max-w-[100px]">
+        <span className="text-xs text-muted-foreground truncate max-w-[100px]" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>
           {asset.name}
         </span>
       </div>
       <div className="flex flex-col items-end ml-auto">
-        <span className="text-sm font-semibold text-foreground tabular-nums">
+        <span className="text-sm font-semibold text-foreground tabular-nums" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
           ${formatPrice(asset.price)}
         </span>
         <span

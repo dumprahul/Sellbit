@@ -42,13 +42,13 @@ function ColumnItem({
         />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-semibold text-foreground truncate">
+        <p className="text-sm font-semibold text-foreground truncate" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>
           {asset.ticker}
         </p>
-        <p className="text-xs text-muted-foreground truncate">{asset.name}</p>
+        <p className="text-xs text-muted-foreground truncate" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>{asset.name}</p>
       </div>
       <div className="text-right flex-shrink-0">
-        <p className="text-sm font-semibold text-foreground">
+        <p className="text-sm font-semibold text-foreground" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
           ${asset.price >= 1 
             ? asset.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
             : asset.price >= 0.01
@@ -105,7 +105,7 @@ function Column({
     >
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <h3 className="text-base font-semibold text-foreground">{title}</h3>
+          <h3 className="text-base font-semibold text-foreground" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>{title}</h3>
           {items.some((a) => a.isLive) && (
             <span className="flex items-center gap-1 text-[10px] text-emerald-600 font-medium">
               <Radio className="w-3 h-3" />

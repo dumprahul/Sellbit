@@ -74,7 +74,7 @@ export function ProductGrid({ assets, loading, error, onRefetch }: ProductGridPr
         className="mb-8"
       >
         <div className="flex items-center gap-3 flex-wrap">
-          <h1 className="text-3xl font-semibold text-foreground tracking-tight">
+          <h1 className="text-3xl font-semibold text-foreground tracking-tight" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>
             Explore Cryptocurrencies
           </h1>
           {assets.some((a) => a.isLive) && (
@@ -84,7 +84,7 @@ export function ProductGrid({ assets, loading, error, onRefetch }: ProductGridPr
             </span>
           )}
         </div>
-        <p className="text-muted-foreground text-sm mt-1">
+        <p className="text-muted-foreground text-sm mt-1" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>
           Real-time data from Bybit • WebSocket updates
         </p>
       </motion.div>

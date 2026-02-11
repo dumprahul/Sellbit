@@ -359,7 +359,7 @@ export function AssetDetailView({ asset }: { asset: AssetData }) {
               />
             </div>
             <div className="flex-1 min-w-0">
-              <h1 className="text-xl font-semibold text-foreground">
+              <h1 className="text-xl font-semibold text-foreground" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>
                 {liveData.name} {liveData.ticker}
               </h1>
               <p className="text-xs text-muted-foreground mt-1">
@@ -370,12 +370,12 @@ export function AssetDetailView({ asset }: { asset: AssetData }) {
               </p>
               <div className="flex items-baseline gap-4 mt-3">
                 {liveData.isLoading ? (
-                  <span className="text-3xl font-bold text-muted-foreground animate-pulse">
+                  <span className="text-3xl font-bold text-muted-foreground animate-pulse" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
                     —
                   </span>
                 ) : (
                   <>
-                    <span className="text-3xl font-bold text-foreground">
+                    <span className="text-3xl font-bold text-foreground" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
                       ${liveData.price >= 1 
                         ? liveData.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
                         : liveData.price >= 0.01
@@ -494,7 +494,7 @@ export function AssetDetailView({ asset }: { asset: AssetData }) {
 
           {/* About section */}
           <div className="rounded-xl bg-card border border-border p-6">
-            <h2 className="text-lg font-bold text-foreground mb-4">About</h2>
+            <h2 className="text-lg font-bold text-foreground mb-4" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>About</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
               {showMore ? aboutText : aboutText.slice(0, 150) + "..."}{" "}
               <button
@@ -535,7 +535,7 @@ export function AssetDetailView({ asset }: { asset: AssetData }) {
                     <div>
                       <p className="text-xs text-muted-foreground mb-2">Onchain Address</p>
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-sm font-mono text-foreground">
+                        <span className="text-sm font-mono text-foreground" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
                           {liveData.address.slice(0, 6)}...{liveData.address.slice(-4)}
                         </span>
                         <button
@@ -608,7 +608,7 @@ export function AssetDetailView({ asset }: { asset: AssetData }) {
 
           {/* Statistics section */}
           <div className="rounded-xl bg-card border border-border p-6">
-            <h2 className="text-lg font-bold text-foreground mb-6">Statistics</h2>
+            <h2 className="text-lg font-bold text-foreground mb-6" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>Statistics</h2>
 
             {/* Price data - 24H */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 pb-6 border-b border-border">

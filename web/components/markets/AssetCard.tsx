@@ -67,7 +67,7 @@ export function AssetCard({
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <p className="text-sm font-semibold text-foreground truncate">
+                <p className="text-sm font-semibold text-foreground truncate" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>
                   {asset.ticker}
                 </p>
                 {isLive && (
@@ -77,7 +77,7 @@ export function AssetCard({
                   </span>
                 )}
               </div>
-              <p className="text-xs text-muted-foreground truncate">{asset.name}</p>
+              <p className="text-xs text-muted-foreground truncate" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>{asset.name}</p>
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ export function AssetCard({
             initial={{ opacity: 0.7, scale: 1.02 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="text-2xl font-bold text-foreground tracking-tight tabular-nums"
+            className="text-2xl font-bold text-foreground tracking-tight tabular-nums" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}
           >
             ${asset.price >= 1 
               ? asset.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
