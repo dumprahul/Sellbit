@@ -102,6 +102,7 @@ export default function MarketsPage() {
         price: ticker.price,
         change24h: ticker.change24h,
         change24hPercent: ticker.changePct24h,
+        category: "Cryptocurrency",
         categories: CRYPTO_CATEGORIES[ticker.ticker] || [],
         isLive: true,
         marketCap: `Vol $${(ticker.turnover24h / 1e9).toFixed(2)}B`,
@@ -109,6 +110,8 @@ export default function MarketsPage() {
         sparklineData: generateSparklineData(ticker.price, ticker.changePct24h),
         high24h: ticker.high24h,
         low24h: ticker.low24h,
+        icon: "",
+        iconBg: "",
       }
     })
   }, [tickersList])

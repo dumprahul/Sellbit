@@ -69,6 +69,8 @@ export default function AssetPage({ params }: Props) {
           categories: ["Crypto"],
           sparklineData: [],
           isCrypto: true,
+          icon: "",
+          iconBg: "",
         }
       }
     }
