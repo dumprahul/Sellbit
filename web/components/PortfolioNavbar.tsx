@@ -92,13 +92,6 @@ export const PortfolioNavbar = () => {
 
           {/* Right controls: wallet */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/portfolio"
-              className="text-sm font-semibold text-zinc-300 hover:text-[hsl(174,62%,56%)] transition-colors px-4 py-2"
-              style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}
-            >
-              Sign In
-            </Link>
             <div
               className="rounded-xl px-4 py-2"
               style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}

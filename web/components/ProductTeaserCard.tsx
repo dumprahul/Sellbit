@@ -113,13 +113,18 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             {/* Trader Stats */}
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
+                {[
+                  "https://randomuser.me/api/portraits/men/32.jpg",
+                  "https://randomuser.me/api/portraits/women/44.jpg",
+                  "https://randomuser.me/api/portraits/men/86.jpg",
+                  "https://randomuser.me/api/portraits/women/68.jpg"
+                ].map((src, i) => (
+                  <img
                     key={i}
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-[hsl(174,62%,56%)] to-[hsl(174,62%,40%)] border-2 border-black flex items-center justify-center text-sm font-bold text-black"
-                  >
-                    {i}
-                  </div>
+                    src={src}
+                    alt={`Trader ${i + 1}`}
+                    className="w-10 h-10 rounded-full border-2 border-black object-cover"
+                  />
                 ))}
               </div>
               <span className="text-base text-zinc-300 font-medium" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>
@@ -149,13 +154,13 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
               >
                 <div className="bg-zinc-900/80 backdrop-blur-xl rounded-2xl p-4 shadow-xl border border-white/10">
                   <div className="text-xs text-zinc-400 uppercase tracking-wider mb-1 font-semibold">
-                    {dailyVolumeLabel}
+                    24H VOLUME
                   </div>
                   <div className="text-3xl font-bold text-[hsl(174,62%,56%)]">
-                    {dailyVolume}
+                    $2.4B
                   </div>
                   <div className="text-xs text-zinc-400 mt-1">
-                    events/sec
+                    trading volume
                   </div>
                 </div>
               </motion.div>
@@ -169,13 +174,13 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
               >
                 <div className="bg-zinc-900/80 backdrop-blur-xl rounded-2xl p-4 shadow-xl border border-white/10">
                   <div className="text-xs text-zinc-400 uppercase tracking-wider mb-1 font-semibold">
-                    UPTIME
+                    LIQUIDITY
                   </div>
                   <div className="text-3xl font-bold text-[hsl(355,70%,68%)]">
-                    99.99%
+                    $8.5M
                   </div>
                   <div className="text-xs text-zinc-400 mt-1">
-                    guaranteed
+                    available now
                   </div>
                 </div>
               </motion.div>
