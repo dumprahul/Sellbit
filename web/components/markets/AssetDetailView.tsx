@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts"
-import { ChevronDown, ArrowDown, HelpCircle, Copy, Loader2 } from "lucide-react"
+import { ChevronDown, ArrowDown, HelpCircle, Copy, Loader2, Plus, X } from "lucide-react"
 import type { AssetData } from "@/lib/sparkline-data"
 import { useAssetDetail } from "@/hooks/useAssetDetail"
 import { cn, getStockLogoUrl, getCryptoLogoUrl } from "@/lib/utils"
@@ -106,6 +106,9 @@ export function AssetDetailView({ asset }: { asset: AssetData }) {
   const [activeTab, setActiveTab] = useState<"buy" | "sell">("buy")
   const [showMore, setShowMore] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
+  const [tpSlEnabled, setTpSlEnabled] = useState(true)
+  const [takeProfitPrice, setTakeProfitPrice] = useState("")
+  const [stopLossPrice, setStopLossPrice] = useState("")
   const [paymentAsset, setPaymentAsset] = useState<PaymentAsset>({
     ticker: "USDC",
     name: "USD Coin",
@@ -839,23 +842,116 @@ export function AssetDetailView({ asset }: { asset: AssetData }) {
                 </div>
               </div>
 
-              {/* Action button */}
-              <button
-                type="button"
-                onClick={handleAction}
-                disabled={isProcessing}
-                className="w-full py-4 rounded-xl font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-[#FFD700] text-background hover:opacity-90"
-              >
-                {isProcessing && <Loader2 className="w-4 h-4 animate-spin" />}
-                {!isWalletConnected
-                  ? "Connect Wallet to Trade"
-                  : activeTab === "buy"
-                  ? paymentAsset.ticker === "USDC"
-                    ? `Buy ${asset.ticker}`
-                    : `Swap ${paymentAsset.ticker} → ${asset.ticker}`
-                  : `Sell ${asset.ticker}`
-                }
-              </button>
+              {/* Unlock your funds Toggle */}
+              <div className="flex items-center justify-between pt-2">
+                <span className="text-sm font-medium text-muted-foreground">Unlock your funds</span>
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={tpSlEnabled}
+                  onClick={() => setTpSlEnabled(!tpSlEnabled)}
+                  className={cn(
+                    "relative w-11 h-6 rounded-full transition-colors",
+                    tpSlEnabled ? "bg-blue-500" : "bg-muted"
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "absolute top-1 w-4 h-4 rounded-full bg-white shadow transition-transform",
+                      tpSlEnabled ? "left-6" : "left-1"
+                    )}
+                  />
+                </button>
+              </div>
+
+              {/* Take Profit / Stop Loss Section */}
+              {tpSlEnabled && (
+                <div className="space-y-4 rounded-xl bg-muted/20 border border-border p-4">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-medium text-muted-foreground">Take Profit</span>
+                      <button type="button" className="p-1 rounded hover:bg-muted/50">
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+                    <div className="flex gap-2">
+                      <div className="flex-1 flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/30 border border-border">
+                        <span className="text-muted-foreground">$</span>
+                        <input
+                          type="text"
+                          placeholder="Price"
+                          value={takeProfitPrice}
+                          onChange={(e) => setTakeProfitPrice(e.target.value.replace(/[^0-9.]/g, ""))}
+                          className="flex-1 bg-transparent text-sm focus:outline-none placeholder:text-muted-foreground"
+                        />
+                      </div>
+                      <button className="px-3 py-2 rounded-lg bg-muted/30 border border-border text-sm font-medium hover:bg-muted/50">
+                        100%
+                      </button>
+                      <button className="p-2 rounded-lg text-red-400 hover:bg-red-500/10">
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-1.5">Take Profit PnL —</p>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-medium text-muted-foreground">Stop Loss</span>
+                      <button type="button" className="p-1 rounded hover:bg-muted/50">
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+                    <div className="flex gap-2">
+                      <div className="flex-1 flex items-center gap-2 px-3 py-2 rounded-lg bg-muted/30 border border-border">
+                        <span className="text-muted-foreground">$</span>
+                        <input
+                          type="text"
+                          placeholder="Price"
+                          value={stopLossPrice}
+                          onChange={(e) => setStopLossPrice(e.target.value.replace(/[^0-9.]/g, ""))}
+                          className="flex-1 bg-transparent text-sm focus:outline-none placeholder:text-muted-foreground"
+                        />
+                      </div>
+                      <button className="px-3 py-2 rounded-lg bg-muted/30 border border-border text-sm font-medium hover:bg-muted/50">
+                        100%
+                      </button>
+                      <button className="p-2 rounded-lg text-red-400 hover:bg-red-500/10">
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-1.5">Stop Loss PnL —</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Action buttons */}
+              <div className="space-y-3 pt-2">
+                <button
+                  type="button"
+                  onClick={handleAction}
+                  disabled={isProcessing}
+                  className="w-full py-4 rounded-xl font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white"
+                >
+                  {isProcessing && <Loader2 className="w-4 h-4 animate-spin" />}
+                  {!isWalletConnected
+                    ? "Connect Wallet"
+                    : activeTab === "buy"
+                    ? paymentAsset.ticker === "USDC"
+                      ? `Buy ${asset.ticker}`
+                      : `Swap ${paymentAsset.ticker} → ${asset.ticker}`
+                    : `Sell ${asset.ticker}`
+                  }
+                </button>
+
+                {/* Protect funds Button */}
+                <button
+                  type="button"
+                  className="w-full py-4 rounded-xl font-semibold text-base transition-colors border-2 border-blue-500 text-blue-500 hover:bg-blue-500/10"
+                >
+                  Protect funds
+                </button>
+              </div>
 
               {/* Disclaimer */}
               <p className="text-xs text-muted-foreground leading-relaxed">

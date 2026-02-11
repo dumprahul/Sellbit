@@ -1522,9 +1522,9 @@ export function PerpetualsTradeView() {
               </button>
             </div>
 
-            {/* Take Profit / Stop Loss Toggle */}
+            {/* Unlock your funds Toggle */}
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-muted-foreground">Take Profit / Stop Loss</span>
+              <span className="text-sm font-medium text-muted-foreground">Unlock your funds</span>
               <button
                 type="button"
                 role="switch"
@@ -1605,7 +1605,7 @@ export function PerpetualsTradeView() {
             )}
 
             {/* Open Position Button */}
-            <div className="pt-2">
+            <div className="pt-2 space-y-3">
               <button
                 type="button"
                 onClick={handleOpenPosition}
@@ -1625,6 +1625,14 @@ export function PerpetualsTradeView() {
                   ? "Connect Wallet"
                   : `${side === "long" ? "Long" : "Short"} ${selectedTicker}`
                 }
+              </button>
+              
+              {/* Protect funds Button */}
+              <button
+                type="button"
+                className="w-full py-4 rounded-xl font-semibold text-base transition-colors border-2 border-blue-500 text-blue-500 hover:bg-blue-500/10"
+              >
+                Protect funds
               </button>
             </div>
 
