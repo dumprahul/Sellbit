@@ -39,9 +39,9 @@ export function PerpetualsNavbar() {
               </span>
               <span
                 className="font-semibold text-foreground hidden sm:inline"
-                style={{ fontFamily: "var(--font-figtree), Figtree" }}
+                style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}
               >
-                Median
+                PumpStop
               </span>
             </Link>
             <div className="hidden md:block flex-1 max-w-xs">
@@ -51,7 +51,7 @@ export function PerpetualsNavbar() {
                   type="text"
                   placeholder="Search markets"
                   className="w-full pl-9 pr-4 py-2 rounded-lg bg-muted/50 border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                  style={{ fontFamily: "var(--font-figtree), Figtree" }}
+                  style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}
                 />
               </div>
             </div>
@@ -68,7 +68,7 @@ export function PerpetualsNavbar() {
                     ? "bg-muted text-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 )}
-                style={{ fontFamily: "var(--font-figtree), Figtree" }}
+                style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}
               >
                 {link.name}
               </Link>

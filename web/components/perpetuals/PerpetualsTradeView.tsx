@@ -740,7 +740,7 @@ export function PerpetualsTradeView() {
             <TokenLogo ticker={selectedTicker} size="md" />
             <div className="text-left">
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-sm">{selectedTicker}/USD</span>
+                <span className="font-semibold text-sm" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>{selectedTicker}/USD</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
                   {selectedTicker}-USDC
                 </span>
@@ -840,14 +840,14 @@ export function PerpetualsTradeView() {
                           <TokenLogo ticker={m.ticker} size="sm" />
                           <div>
                             <div className="flex items-center gap-1.5">
-                              <span className="font-semibold text-sm">{m.ticker}/USD</span>
+                              <span className="font-semibold text-sm" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>{m.ticker}/USD</span>
                               <span className="text-[10px] px-1 py-0.5 rounded bg-muted/50 text-muted-foreground">
                                 {MAX_LEVERAGE[m.ticker] || MAX_LEVERAGE.default}x
                               </span>
                             </div>
                           </div>
                         </div>
-                        <span className="text-right text-sm font-medium tabular-nums">
+                        <span className="text-right text-sm font-medium tabular-nums" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
                           ${formatPrice(m.price)}
                         </span>
                         <span className={cn("text-right text-sm tabular-nums", m.changePct24h >= 0 ? "text-emerald-500" : "text-red-500")}>
@@ -873,7 +873,7 @@ export function PerpetualsTradeView() {
 
         {/* Price + Change */}
         <div className="flex items-baseline gap-3 flex-shrink-0">
-          <span className="text-xl font-bold tabular-nums">
+          <span className="text-xl font-bold tabular-nums" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
             ${mounted && selectedPrice ? formatPrice(selectedPrice) : "—"}
           </span>
           {mounted && selectedMarket && (
@@ -891,23 +891,23 @@ export function PerpetualsTradeView() {
         <div className="flex items-center gap-5 flex-1 min-w-0 text-xs overflow-x-auto">
           <div className="flex flex-col whitespace-nowrap">
             <span className="text-muted-foreground text-[10px] mb-0.5">24H Volume</span>
-            <span className="font-semibold tabular-nums">{mounted && selectedMarket ? formatVolume(selectedMarket.turnover24h) : "—"}</span>
+            <span className="font-semibold tabular-nums" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>{mounted && selectedMarket ? formatVolume(selectedMarket.turnover24h) : "—"}</span>
           </div>
           <div className="flex flex-col whitespace-nowrap">
             <span className="text-muted-foreground text-[10px] mb-0.5">24H High</span>
-            <span className="font-semibold tabular-nums text-emerald-500">
+            <span className="font-semibold tabular-nums text-emerald-500" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
               {mounted && selectedMarket ? `$${formatPrice(selectedMarket.high24h)}` : "—"}
             </span>
           </div>
           <div className="flex flex-col whitespace-nowrap">
             <span className="text-muted-foreground text-[10px] mb-0.5">24H Low</span>
-            <span className="font-semibold tabular-nums text-red-500">
+            <span className="font-semibold tabular-nums text-red-500" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
               {mounted && selectedMarket ? `$${formatPrice(selectedMarket.low24h)}` : "—"}
             </span>
           </div>
           <div className="flex flex-col whitespace-nowrap">
             <span className="text-muted-foreground text-[10px] mb-0.5">Open Interest</span>
-            <span className="font-semibold tabular-nums">
+            <span className="font-semibold tabular-nums" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
               {mounted && selectedMarket ? (
                 <span className="flex items-center gap-1">
                   <span className="text-emerald-500">↗{formatVolume(selectedMarket.openInterest * 0.43)}</span>
@@ -919,19 +919,19 @@ export function PerpetualsTradeView() {
           </div>
           <div className="flex flex-col whitespace-nowrap">
             <span className="text-muted-foreground text-[10px] mb-0.5">Funding Rate</span>
-            <span className={cn("font-semibold tabular-nums", selectedMarket && selectedMarket.fundingRate >= 0 ? "text-emerald-500" : "text-red-500")}>
+            <span className={cn("font-semibold tabular-nums", selectedMarket && selectedMarket.fundingRate >= 0 ? "text-emerald-500" : "text-red-500")} style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
               {mounted && selectedMarket ? `${selectedMarket.fundingRate >= 0 ? "+" : ""}${selectedMarket.fundingRate.toFixed(4)}%` : "—"}
             </span>
           </div>
           <div className="flex flex-col whitespace-nowrap">
             <span className="text-muted-foreground text-[10px] mb-0.5">Index Price</span>
-            <span className="font-semibold tabular-nums">
+            <span className="font-semibold tabular-nums" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
               {mounted && selectedPrice ? `$${formatPrice(selectedPrice * 0.9999)}` : "—"}
             </span>
           </div>
           <div className="flex flex-col whitespace-nowrap">
             <span className="text-muted-foreground text-[10px] mb-0.5">Available Liquidity</span>
-            <span className="font-semibold tabular-nums text-blue-400">
+            <span className="font-semibold tabular-nums text-blue-400" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
               {mounted && selectedMarket ? (
                 <>
                   ↗{formatVolume(selectedMarket.openInterest * 0.32)} / ↘{formatVolume(selectedMarket.openInterest * 0.28)}
@@ -1027,13 +1027,13 @@ export function PerpetualsTradeView() {
                     </button>
                     <TokenLogo ticker={m.ticker} size="sm" />
                     <div className="flex items-center gap-1">
-                      <span className="font-medium text-xs">{m.ticker}/USD</span>
+                      <span className="font-medium text-xs" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>{m.ticker}/USD</span>
                       <span className="text-[9px] px-1 py-0.5 rounded bg-muted/50 text-muted-foreground">
                         {MAX_LEVERAGE[m.ticker] || MAX_LEVERAGE.default}x
                       </span>
                     </div>
                   </div>
-                  <span className="text-right text-xs font-medium tabular-nums">
+                  <span className="text-right text-xs font-medium tabular-nums" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
                     ${formatPrice(m.price)}
                   </span>
                   <span className={cn("text-right text-xs tabular-nums", m.changePct24h >= 0 ? "text-emerald-500" : "text-red-500")}>
@@ -1220,8 +1220,8 @@ export function PerpetualsTradeView() {
               </div>
             </div>
             {/* Asset info line: TICKER/USD · O H L C */}
-            <div className="px-4 pb-2 flex items-center gap-2 text-xs font-mono flex-wrap">
-              <span className="font-semibold text-foreground">{selectedTicker}/USD</span>
+            <div className="px-4 pb-2 flex items-center gap-2 text-xs font-mono flex-wrap" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
+              <span className="font-semibold text-foreground" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>{selectedTicker}/USD</span>
               {mounted && isSupported && bybitData.length > 0 && (
                 <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-500 text-[10px] font-medium">
                   Live
@@ -1266,8 +1266,8 @@ export function PerpetualsTradeView() {
                       <div className="flex items-center gap-3">
                         <TokenLogo ticker={selectedTicker} size="lg" />
                         <div>
-                          <div className="text-lg font-bold">{selectedTicker}/USD</div>
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-lg font-bold" style={{ fontFamily: "var(--font-sans), Space Grotesk, sans-serif" }}>{selectedTicker}/USD</div>
+                          <div className="text-sm text-muted-foreground" style={{ fontFamily: "var(--font-mono), JetBrains Mono, monospace" }}>
                             ${formatPrice(selectedPrice || 0)}
                           </div>
                         </div>
