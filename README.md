@@ -12,7 +12,8 @@ Trades execute off-chain through state channels, giving users CEX-speed executio
 
 
 
-https://github.com/user-attachments/assets/a6e8562e-8981-418e-92b6-ffe57d17e4fa
+https://github.com/user-attachments/assets/0360c4af-92d3-48e5-9a9b-52e7fc1efd41
+
 
 
 ![Trading Interface](data/s1.png)
