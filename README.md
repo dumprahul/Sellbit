@@ -10,7 +10,10 @@ Trades execute off-chain through state channels, giving users CEX-speed executio
 
 > **CEX tools. DEX custody. Stop the dump.**
 
-![Demo Preview](data/video.gif)
+
+
+https://github.com/user-attachments/assets/a6e8562e-8981-418e-92b6-ffe57d17e4fa
+
 
 ![Trading Interface](data/s1.png)
 ![Portfolio Dashboard](data/s2.png)
